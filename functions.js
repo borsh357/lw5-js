@@ -127,3 +127,24 @@ var Player = {
     }
   }
 }
+
+//это от себя добавил
+document.getElementsByClassName('prev')[0].onclick = function() {
+  Player.prev();
+  document.getElementsByClassName('player')[0].innerHTML = Player.display();
+}
+
+document.getElementsByClassName('next')[0].onclick = function() {
+  Player.next();
+  document.getElementsByClassName('player')[0].innerHTML = Player.display();
+}
+
+document.getElementsByClassName('play')[0].onclick = function() {
+  Player.play();
+  document.getElementsByClassName('player')[0].innerHTML = Player.display();
+}
+
+document.getElementsByClassName('pause')[0].onclick = function() {
+  Player.pause();
+  document.getElementsByClassName('player')[0].innerHTML = Player.display();
+}
