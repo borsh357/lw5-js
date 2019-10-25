@@ -88,26 +88,22 @@ function check(data, expectedType) {
 }
 
 //task6
-var tracks = ['song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3', 'song5.mp3'];
+var tracks = [];
 var Player = {
   currentTrack: 0,
   status: 'pause',
   display: function() {
-    return 'Track: ' + tracks[this.currentTrack] + ' Status: ' + this.status;
+    if (tracks.length !== 0) {
+      return 'Track: ' + tracks[this.currentTrack] + ' Status: ' + this.status;
+    } else {
+      return 'Nothing to play!'
+    }
   },
   play: function() {
-    if (tracks.length !== 0) {
       this.status = 'play';
-    } else {
-      this.currentTrack = 'Nothing to play!'
-    }
   },
   pause: function() {
-    if (tracks.length !== 0) {
       this.status = 'pause';
-    } else {
-      this.currentTrack = 'Nothing to play!'
-    }
   },
   next: function() {
     if (this.currentTrack < tracks.length - 1) {
