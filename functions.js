@@ -96,14 +96,14 @@ var Player = {
     return 'Track: ' + tracks[this.currentTrack] + ' Status: ' + this.status;
   },
   play: function() {
-    if (tracks.length !=== 0) {
+    if (tracks.length !== 0) {
       this.status = 'play';
     } else {
       this.currentTrack = 'Nothing to play!'
     }
   },
   pause: function() {
-    if (tracks.length !=== 0) {
+    if (tracks.length !== 0) {
       this.status = 'pause';
     } else {
       this.currentTrack = 'Nothing to play!'
@@ -111,14 +111,14 @@ var Player = {
   },
   next: function() {
     if (this.currentTrack < tracks.length - 1) {
-      this.currentTrack++
+      this.currentTrack++;
     } else {
       this.currentTrack = 0;
     }
   },
   prev: function() {
-    if (this.currentTrack !=== 0) {
-      this.currentTrack--
+    if (this.currentTrack !== 0) {
+      this.currentTrack--;
     } else {
       this.currentTrack = tracks.length - 1;
     }
