@@ -1,7 +1,7 @@
 //task 1
 function replaceString(text, searchStr, newStr) {
   //проверка вводных параметров
-  if (!text || !searchStr || typeof newStr !== 'string') { //проверяем, введены ли исходные данные
+  if (!text && typeof text !== 'string' || !searchStr && typeof searchStr !== 'string' || typeof newStr !== 'string') { //проверяем, введены ли исходные данные
     return false;
   }
   //переводим переменные в нижний регистр, чтобы функция могла обрабатывать любые значения и не была чувствительна к регистру 
@@ -90,29 +90,37 @@ function check(data, expectedType) {
 //task6
 var tracks = ['song1.mp3', 'song2.mp3', 'song3.mp3', 'song4.mp3', 'song5.mp3'];
 var Player = {
-  currentTrack: tracks[0],
+  currentTrack: 0,
   status: 'pause',
   display: function() {
-    return 'Track: ' + this.currentTrack + ' Status: ' + this.status;
+    return 'Track: ' + tracks[this.currentTrack] + ' Status: ' + this.status;
   },
   play: function() {
-    this.status = 'play';
+    if (tracks.length !=== 0) {
+      this.status = 'play';
+    } else {
+      this.currentTrack = 'Nothing to play!'
+    }
   },
   pause: function() {
-    this.status = 'pause';
+    if (tracks.length !=== 0) {
+      this.status = 'pause';
+    } else {
+      this.currentTrack = 'Nothing to play!'
+    }
   },
   next: function() {
-    if (this.currentTrack != tracks[tracks.length - 1]) {
-      this.currentTrack = tracks[tracks.indexOf(this.currentTrack) + 1];
+    if (this.currentTrack < tracks.length - 1) {
+      this.currentTrack++
     } else {
-      this.currentTrack = tracks[0];
+      this.currentTrack = 0;
     }
   },
   prev: function() {
-    if (this.currentTrack != tracks[0]) {
-      this.currentTrack = tracks[tracks.indexOf(this.currentTrack) - 1];
+    if (this.currentTrack !=== 0) {
+      this.currentTrack--
     } else {
-      this.currentTrack = tracks[tracks.length - 1];
+      this.currentTrack = tracks.length - 1;
     }
   }
 }
